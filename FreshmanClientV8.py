@@ -11,14 +11,11 @@ def enviar( mensagem ):
     servidor=('neetiproj.tagus.ist.utl.pt', 4000)
     sock.connect( servidor )
     mensagens = []
-    data = None
     
     try: 
         msg = mensagem.encode('latin1')        
         sock.sendall( msg )
-        
-        i = 1 ;
-        
+                
         if ( mensagem[:2] == "/r" ):
             while True:
                 data = sock.recv(2048)
@@ -41,8 +38,8 @@ def menu():
             for m in d:
                 print(m)
    
-try:
+''' try:
     menu()
 except Exception as ex:
     print (ex)
-    input()
+    input() '''

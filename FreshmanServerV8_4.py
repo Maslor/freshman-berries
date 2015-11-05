@@ -5,7 +5,6 @@
 #Author: NEETI
 
 import socket
-import sys
 
 # Variáveis Globais:
 
@@ -22,7 +21,7 @@ PORTA = 4000
 def adicionaMensagem( utilizador, mensagem ):
 	u = utilizadores.index( utilizador )
 	mensagens[u].append( mensagem + "\n")
-	print ("ad_msg=", mensagens) #alt_F
+	print ("ad_msg=", mensagens) 
 
 # Adiciona um utilizador ao array de utilizadores
 def login( utilizador ):
@@ -43,7 +42,7 @@ def leMensagens( utilizador ):
 	for m in mensagens[u]:
 		porLer += m
 	mensagens[u] = [] 			# Apaga as mensagens que o utilizador tinha para não voltarem a ser lida
-	#porLer.append("/EOF")
+	
 	return porLer
 
 # Função main:
@@ -76,14 +75,13 @@ def main():
 
 					paraEnviar=leMensagens(utilizador)
 					
-					print ("vai enviar :", paraEnviar) #alt_F
+					print ("vai enviar :", paraEnviar) 
 					ligacao.sendall( paraEnviar.encode('latin1') )
-					#print ("afilhadas do rei")
 
 				if ( modo == "/s" ):
 					login( utilizador )
 					adicionaMensagem( utilizador, mensagem )
-					print ("mensagem recebida") #alt_F
+					print ("mensagem recebida") 
 				else:
 					continue
 
