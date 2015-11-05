@@ -17,13 +17,14 @@ def enviar( mensagem ):
         msg = mensagem.encode('latin1')        
         sock.sendall( msg )
         
+        i = 1 ;
+        
         if ( mensagem[:2] == "/r" ):
             while True:
                 data = sock.recv(2048)
                 data = data.decode('latin1')
-                if ( data is not None and data != "/EOF" ):
+                if ( data is not None ):
                     mensagens.append(data)
-                else:
                     break;
                     
     finally:
